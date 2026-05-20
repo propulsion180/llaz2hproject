@@ -29,4 +29,9 @@ int main() {
   value = NULL;
   value = kv_get(table, "hi");
   printf("%s, %s, %s\n", value, val2, val3);
+
+  kv_free(table);
+  table = NULL;
+  value = kv_get(table, "hd");
+  printf("%d\n", value);
 }
