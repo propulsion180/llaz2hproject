@@ -1,4 +1,4 @@
-#include "kv.h"
+#include "../inc/kv.h"
 #include <stdatomic.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,8 +32,9 @@ int kv_put(kv_t *db, char *key, char *value) {
     if (entry->key && entry->key != (void *)TOMBSTONE &&
         !strcmp(entry->key, key)) {
       char *newval = strdup(value);
-      if (!newval)
+      if (!newval) {
         return -1;
+      }
       entry->value = newval;
       return real_idx;
     }
@@ -45,9 +46,9 @@ int kv_put(kv_t *db, char *key, char *value) {
         free(newkey);
         free(newval);
         return -1;
-      };
+      }
       entry->value = newval;
-      entry->key = key;
+      entry->key = newkey;
       db->count++;
       return real_idx;
     }
