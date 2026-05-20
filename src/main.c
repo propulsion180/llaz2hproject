@@ -1,4 +1,4 @@
-#include "../inc/kv.h"
+#include <kv.h>
 #include <stdio.h>
 
 int main() {
@@ -7,9 +7,11 @@ int main() {
 
   printf("%ld\n", table->capacity);
 
-  kv_put(table, "hi", "ha");
-  kv_put(table, "hi", "hra");
-  kv_put(table, "hd", "ha");
+  int one = kv_put(table, "hi", "ha");
+  int two = kv_put(table, "hi", "hra");
+  int three = kv_put(table, "hd", "ha");
+
+  printf("%d, %d, %d", one, two, three);
 
   for (int i = 0; i < table->capacity; i++) {
     if (table->entries[i].key) {
