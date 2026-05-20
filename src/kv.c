@@ -1,5 +1,4 @@
 #include "../inc/kv.h"
-#include <stdatomic.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -19,9 +18,9 @@ size_t hash(char *val, int capacity) {
 }
 
 int kv_put(kv_t *db, char *key, char *value) {
-  if (!db || !key || !value)
+  if (!db || !key || !value) {
     return -1;
-
+  }
   size_t idx = hash(key, db->capacity);
 
   for (int i = 0; i < db->capacity - 1; i++) {
@@ -53,7 +52,7 @@ int kv_put(kv_t *db, char *key, char *value) {
       return real_idx;
     }
   }
-  return -1;
+  return -2;
 }
 
 kv_t *kv_init(size_t capacity) {
