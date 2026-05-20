@@ -24,4 +24,9 @@ int main() {
   char *val2 = kv_get(table, "hd");
   char *val3 = kv_get(table, "asrtarstarst");
   printf("%s, %s, %s\n", value, val2, val3);
+
+  kv_delete(table, "hi");
+  value = NULL;
+  value = kv_get(table, "hi");
+  printf("%s, %s, %s\n", value, val2, val3);
 }
