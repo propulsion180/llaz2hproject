@@ -22,7 +22,7 @@ char *kv_get(kv_t *db, char *key);
 
 int kv_delete(kv_t *db, char *key);
 
-int kv_free(kv_t *db);
+void kv_free(kv_t *db);
 
 
 #endif
