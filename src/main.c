@@ -1,4 +1,4 @@
-#include <kv.h>
+#include "../inc/kv.h"
 #include <stdio.h>
 
 int main() {
@@ -19,4 +19,9 @@ int main() {
              table->entries[i].value);
     }
   }
+
+  char *value = kv_get(table, "hi");
+  char *val2 = kv_get(table, "hd");
+  char *val3 = kv_get(table, "asrtarstarst");
+  printf("%s, %s, %s\n", value, val2, val3);
 }
