@@ -67,7 +67,7 @@ kv_t *kv_init(size_t capacity) {
   table->capacity = capacity;
   table->count = 0;
 
-  table->entries = calloc(sizeof(kv_entry_t), capacity);
+  table->entries = calloc(capacity, sizeof(kv_entry_t));
   if (table->entries == NULL) {
     return NULL;
   }
