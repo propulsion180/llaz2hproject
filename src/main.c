@@ -7,4 +7,12 @@ int main() {
   printf("%p\n", table);
 
   printf("%ld\n", table->capacity);
+
+  kv_put(table, "hi", "ha");
+
+  for (int i = 0; i < table->capacity; i++) {
+    if (table->entries[i].key) {
+      printf("%s: %s\n", table->entries[i].key, table->entries[i].value);
+    }
+  }
 }
